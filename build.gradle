@@ -14,9 +14,9 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '2.4.1b'
-group = 'com.falcion.mortem' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'mortem'
+version = '2.4.1'
+group = 'net.deltamine.ru' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'sulfrum'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
