@@ -22,13 +22,15 @@ build/_postProcess_2
 build/_renameJarInPlace_7
 build/classes
 build/createSrgToMcp
+build/createMcpToSrg
 build/downloadMCMeta
 build/downloadMcpConfig
 build/extractSrg
 build/fg_cache
 build/natives
 build/tmp
-build/openeye*.*
+build/reobfJar
+build/libs/OpenEye*.*
 run/
 
 # Sensitive or high-churn files
