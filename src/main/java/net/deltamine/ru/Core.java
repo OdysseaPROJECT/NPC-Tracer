@@ -1,20 +1,15 @@
 package net.deltamine.ru;
 
-import com.sun.jna.platform.win32.Guid;
 import net.deltamine.ru.pack.Pack;
 import net.minecraft.client.Minecraft;
-import net.minecraftforge.client.MinecraftForgeClient;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.relauncher.libraries.ModList;
 
 import java.lang.management.ManagementFactory;
 import java.util.UUID;
-import java.util.logging.Logger;
 
 @Mod(modid = Lore.ID, name = Lore.NAME, version = Lore.VERSION)
 public class Core {
@@ -46,7 +41,7 @@ public class Core {
 
     @Mod.EventHandler
     public void PostInit(FMLPostInitializationEvent event) {
-        String processName = "NULL";
+        String processName = null;
 
         if(Loader.isModLoaded("It's the little things") == true) {
             String processFullname = ManagementFactory.getRuntimeMXBean().getName();
@@ -54,7 +49,7 @@ public class Core {
             processName = processFullname.split("@")[1];
         }
 
-        if(processName != "NULL") {
+        if(processName != null) {
 
             switch(processName) {
                 case "Magicae": LOGGER.info("Force-code Version: " + Pack.MAGICAE);
