@@ -1,6 +1,5 @@
 package net.deltamine.ru.network;
 
-import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufOutputStream;
 import io.netty.buffer.Unpooled;
 import net.deltamine.ru.OpenEye;
@@ -36,7 +35,7 @@ public class PacketConstructor extends Thread {
 
     protected void readPacket(DataInput input) throws IOException {}
 
-    public void processPacket(double posx, double posy, double posz, EntityPlayer p, World w) {}
+    public void processPacket(double posX, double posY, double posZ, EntityPlayer player, World world) {}
 
     public Side getProcessSide() {
         return Side.CLIENT;
@@ -54,22 +53,26 @@ public class PacketConstructor extends Thread {
     public void sendToPlayer(EntityPlayer player) {}
 
     private FMLProxyPacket createPacket() {
-        PacketBuffer e = (PacketBuffer) Unpooled.buffer();
-        ByteBufOutputStream out = new ByteBufOutputStream(e);
+        PacketBuffer packetBuf = (PacketBuffer) Unpooled.buffer();
+
+        ByteBufOutputStream out = new ByteBufOutputStream(packetBuf);
         try {
             out.writeUTF(packetUniqueName());
-            writePacket((DataOutput)out);
+            writePacket(out);
+
             out.flush();
         } catch (IOException iOException) {
             try {
                 out.close();
             } catch (IOException iOException1) {}
+
         } finally {
             try {
                 out.close();
             } catch (IOException iOException) {}
         }
-        return new FMLProxyPacket(e, "existence_npc_tracer");
+
+        return new FMLProxyPacket(packetBuf, "existence_npc_tracer");
     }
 
     public void run() {}

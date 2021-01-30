@@ -24,18 +24,20 @@ public class OpenEye {
 
     public static final String ID = "openeye";
     public static final String NAME = "OpenEye";
-    public static final String VERSION = "0.3.1";
+    public static final String VERSION = "0.3.2-alpha";
 
     public static FMLEventChannel network;
 
     public static TMap<EntityPlayer, List<EntityLiving>> entityLost;
+
+    org.apache.logging.log4j.Logger LOGGER;
 
     @Instance
     public static OpenEye instance;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-
+        LOGGER = event.getModLog();
     }
 
     @EventHandler
@@ -48,19 +50,19 @@ public class OpenEye {
         network = NetworkRegistry.INSTANCE.newEventDrivenChannel("openeye");
         network.register(new PacketHandler());
 
-        PacketHandler.addPacket((PacketConstructor) new CheckEntitySC());
-        PacketHandler.addPacket((PacketConstructor) new CheckEntityAnswSC());
-        PacketHandler.addPacket((PacketConstructor) new ParticleSC());
+        PacketHandler.addPacket(new CheckEntitySC());
+        PacketHandler.addPacket(new CheckEntityAnswSC());
+        PacketHandler.addPacket(new ParticleSC());
 
         FMLCommonHandler.instance().bus().register(this);
     }
 
     @SubscribeEvent
-    public void cleaner(PlayerEvent.PlayerLoggedOutEvent ev) {}
+    public void cleanEnv(PlayerEvent.PlayerLoggedOutEvent event) {}
 
     @SubscribeEvent
-    public void ticker(TickEvent.WorldTickEvent e) {}
+    public void worldTickEvent(TickEvent.WorldTickEvent event) {}
 
     @SubscribeEvent
-    public void ticker(TickEvent.PlayerTickEvent ev) {}
+    public void playerTickEvent(TickEvent.PlayerTickEvent event) {}
 }

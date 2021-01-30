@@ -11,50 +11,51 @@ import java.io.IOException;
 import java.util.Random;
 
 public class ParticleSC extends PacketConstructor {
-    private double x;
 
-    private double y;
+    private double coordX;
+    private double coordY;
+    private double coordZ;
 
-    private double z;
+    private double width;
+    private double height;
 
-    private double w;
-
-    private double h;
-
-    private static Random rand = new Random();
+    private static Random random = new Random();
 
     public ParticleSC() {}
 
     public ParticleSC(double x, double y, double z, double w, double h) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
-        this.w = w;
-        this.h = h;
+        this.coordX = x;
+        this.coordY = y;
+        this.coordZ = z;
+
+        this.width = w;
+        this.height = h;
     }
 
     protected void readPacket(DataInput input) throws IOException {
-        this.x = input.readDouble();
-        this.y = input.readDouble();
-        this.z = input.readDouble();
-        this.w = input.readDouble();
-        this.h = input.readDouble();
+        this.coordX = input.readDouble();
+        this.coordY = input.readDouble();
+        this.coordZ = input.readDouble();
+
+        this.width = input.readDouble();
+        this.height = input.readDouble();
     }
 
     protected void writePacket(DataOutput output) throws IOException {
-        output.writeDouble(this.x);
-        output.writeDouble(this.y);
-        output.writeDouble(this.z);
-        output.writeDouble(this.w);
-        output.writeDouble(this.h);
+        output.writeDouble(this.coordX);
+        output.writeDouble(this.coordY);
+        output.writeDouble(this.coordZ);
+
+        output.writeDouble(this.width);
+        output.writeDouble(this.height);
     }
 
-    public void processPacket(double posx, double posy, double posz, EntityPlayer p, World world) {
+    public void processPacket(double posX, double posY, double posZ, EntityPlayer player, World world) {
         for (int i = 0; i < 25; i++)
-            world.spawnParticle(EnumParticleTypes.PORTAL, this.x + (rand.nextDouble() - 0.5D) * this.w, this.y + rand
-                    .nextDouble() * this.h - 0.25D, this.z + (rand
-                    .nextDouble() - 0.5D) * this.w, (rand
-                    .nextDouble() - 0.5D) * 2.0D, -rand.nextDouble(), (rand
+            world.spawnParticle(EnumParticleTypes.PORTAL, this.coordX + (random.nextDouble() - 0.5D) * this.width, this.coordY + random
+                    .nextDouble() * this.height - 0.25D, this.coordZ + (random
+                    .nextDouble() - 0.5D) * this.width, (random
+                    .nextDouble() - 0.5D) * 2.0D, -random.nextDouble(), (random
                     .nextDouble() - 0.5D) * 2.0D);
     }
 
@@ -63,6 +64,6 @@ public class ParticleSC extends PacketConstructor {
     }
 
     public String packetUniqueName() {
-        return "openeye_particle_sc";
+        return "openeye_packet_tracing_particles_sc";
     }
 }
