@@ -1,7 +1,11 @@
-package net.deltamine.ru;
+package deltamine.ru;
 
+import deltamine.ru.handlers.ConfigHandler;
+import deltamine.ru.network.CheckEntityAnswSC;
+import deltamine.ru.network.CheckEntitySC;
+import deltamine.ru.network.PacketHandler;
+import deltamine.ru.network.ParticleSC;
 import gnu.trove.map.TMap;
-import net.deltamine.ru.network.*;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -17,27 +21,25 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.network.FMLEventChannel;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 
+import java.io.File;
 import java.util.List;
 
-@Mod(modid = OpenEye.ID, name = OpenEye.NAME, version = OpenEye.VERSION)
-public class OpenEye {
-
-    public static final String ID = "openeye";
-    public static final String NAME = "OpenEye";
-    public static final String VERSION = "0.3.2-alpha";
+@Mod(modid = Lore.ID, name = Lore.NAME, version = Lore.VERSION)
+public class Core {
+    public static File config;
 
     public static FMLEventChannel network;
 
     public static TMap<EntityPlayer, List<EntityLiving>> entityLost;
 
-    org.apache.logging.log4j.Logger LOGGER;
+    org.apache.logging.log4j.Logger logger;
 
     @Instance
-    public static OpenEye instance;
+    public static Core instance;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        LOGGER = event.getModLog();
+        logger = event.getModLog();
     }
 
     @EventHandler
@@ -50,9 +52,18 @@ public class OpenEye {
         network = NetworkRegistry.INSTANCE.newEventDrivenChannel("openeye");
         network.register(new PacketHandler());
 
-        PacketHandler.addPacket(new CheckEntitySC());
-        PacketHandler.addPacket(new CheckEntityAnswSC());
-        PacketHandler.addPacket(new ParticleSC());
+        if(ConfigHandler.traceEntitySC == true) {
+            PacketHandler.addPacket(new CheckEntitySC());
+            logger.info("Tracing loaded entities!");
+        }
+        if(ConfigHandler.traceEntityAnswSC == true) {
+            PacketHandler.addPacket(new CheckEntityAnswSC());
+            logger.info("Tracing entities without signal with server (no connection)!");
+        }
+        if(ConfigHandler.traceParticleSC == true) {
+            PacketHandler.addPacket(new ParticleSC());
+            logger.info("Tracing particles!");
+        }
 
         FMLCommonHandler.instance().bus().register(this);
     }

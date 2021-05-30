@@ -1,8 +1,8 @@
-package net.deltamine.ru.network;
+package deltamine.ru.network;
 
+import deltamine.ru.Core;
 import io.netty.buffer.ByteBufOutputStream;
 import io.netty.buffer.Unpooled;
-import net.deltamine.ru.OpenEye;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.world.World;
@@ -47,7 +47,7 @@ public class PacketConstructor extends Thread {
 
     @SideOnly(Side.CLIENT)
     public void sendToServer() {
-        OpenEye.network.sendToServer(createPacket());
+        Core.network.sendToServer(createPacket());
     }
 
     public void sendToPlayer(EntityPlayer player) {}

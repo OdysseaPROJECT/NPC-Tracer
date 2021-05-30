@@ -1,4 +1,4 @@
-package net.deltamine.ru.network;
+package deltamine.ru.network;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumParticleTypes;

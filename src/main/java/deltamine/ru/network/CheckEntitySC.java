@@ -1,4 +1,4 @@
-package net.deltamine.ru.network;
+package deltamine.ru.network;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;

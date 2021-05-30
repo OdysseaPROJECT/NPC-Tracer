@@ -1,4 +1,4 @@
-package net.deltamine.ru.network;
+package deltamine.ru.network;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
@@ -46,6 +46,6 @@ public class CheckEntityAnswSC extends PacketConstructor {
     }
 
     public String packetUniqueName() {
-        return "openeye_check_entities_answ_cs";
+        return "tracer_check_entities_answ_cs";
     }
 }
