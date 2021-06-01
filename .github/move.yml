@@ -1,0 +1,17 @@
+# Deleting the command comment in case of no other content.
+  deleteCommand:          true
+
+# Closing the source issue after moving it.
+  closeSourceIssue:       true
+
+# Lock the source issue after moving it.
+  lockSourceIssue:        false
+
+# Mentioning the issue and authors in it after moving.
+  mentionAuthors:         false
+
+# Enabling preservation of mentions in issue content.
+  keepContentMentions:    true
+
+# Enable moving labels in case of existing in another repository.
+  moveLabels:             true
