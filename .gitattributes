@@ -79,8 +79,6 @@ readme                      text
 *README*                    text
 TODO                        text
 
-# Documents of the project.
-
 # Configurations of environment.
 *.cnf                       text
 *.conf                      text
@@ -172,6 +170,13 @@ makefile                    text
 *.swc                       binary
 *.swf                       binary
 *.webm                      binary
+
+# Documents of the project.
+*.doc                       -text filter=lfs diff=astextplain merge=lfs
+*.dot                       -text filter=lfs diff=astextplain merge=lfs
+*.pdf                       -text filter=lfs diff=astextplain merge=lfs
+*.rtf                       -text filter=lfs diff=astextplain merge=lfs
+*.docx                      -text filter=lfs diff=astextplain merge=lfs
 
 # Archives.
 *.7z                        binary
