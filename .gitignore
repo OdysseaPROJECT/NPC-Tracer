@@ -3,6 +3,7 @@
 
 # In-workspace files built by IDEs.
 build/
+!**//libs/
 
 # Environment for program debugging.
 run/
