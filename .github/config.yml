@@ -1,0 +1,2 @@
+# Disable creating blank issue in a repository.
+  blank_issue_enabled: false
