@@ -1,4 +1,4 @@
-# Deleting any content from an issue.
+# Interaction with any content from an issue.
   # Deleting the command comment in case of no other content.
     deleteCommand:       true
   
