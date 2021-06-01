@@ -1,36 +1,15 @@
 # Configurations specified by user in IDEs.
 .idea/
 
-# Results of testing the program.
-**/test/
-
 # In-workspace files built by IDEs.
-# Excluding folder for libraries/release of the program.
-build/_applyBinpatches_2
-build/_atJar_6
-build/_compileJava_3
-build/_compileJava_5
-build/_postProcess_2
-build/_renameJarInPlace_7
-build/classes
-build/createSrgToMcp
-build/createMcpToSrg
-build/downloadMCMeta
-build/downloadMcpConfig
-build/extractSrg
-build/fg_cache
-build/natives
-build/tmp
-build/reobfJar
+build/
 
 # Environment for program debugging.
 run/
+**/test/
 
 # Packages imported from custom MDK (or downloaded by IDEs).
 .gradle/
 
 # Project formatting of files.
 *.iws
-
-# JIRA-XML.
-atlassian-ide-plugin.*
