@@ -2,21 +2,21 @@
     # Displaying aliases of current config.
         aliases                     = !git config --get-regexp alias | sed -re 's/alias\\.(\\S*)\\s(.*)$/\\1 = \\2/g'
 
-	# Settings of the repository.
+    # Settings of the repository.
         bc                          = rev-parse --abbrev-ref HEAD
         bu                          = !git rev-parse --abbrev-ref --symbolic-full-name "@{u}"
 
-	# Setting up the stream.
+    # Setting up the stream.
 	    set-up-stream               = !git branch --set-upstream-to=$(git bu)
 
-	# Deleting the branch of the repository.
+    # Deleting the branch of the repository.
 	    delete-branch               = branch -D
 
-	# Displaying of branches.
+    # Displaying of branches.
         display-branch              = !git branch
         display-branch-all          = !git branch -a
 
-	# Listing the files of GIT.
+    # Listing the files of GIT.
 	    ls                          = ls-files
 
     # Switch between the branches.
@@ -24,15 +24,15 @@
         co-res-dev                  = !git checkout release/dev && git pull origin $(git bc)
         co-staging                  = !git checkout release/build && git pull origin $(git bc)
 
-	# Checkout of the repository.
+    # Checkout of the repository.
         co                          = checkout
         co-branch                   = checkout -b
 
-	# Committing in the repository.
-	    cm                          = !git commit -m
+    # Committing in the repository.
+        cm                          = !git commit -m
         cm-add                      = !git add -A && git cm
         cm-edit                     = commit -a --amend
-	    amend                       = !git commit --amend --no-edit
+        amend                       = !git commit --amend --no-edit
         amend-all                   = !git add -A && git amend
 
         # Editing the message of commit.
@@ -51,14 +51,14 @@
         update-main                 = !git pull origin main
         update-branch               = !git pull origin $(git bc)
 
-	# Pushing inside the repository.
+    # Pushing inside the repository.
         push-master                 = push origin main
         push-branch                 = !git push origin $(git bc)
 
     # Force pushing of commit without lease of different code.
         push-with-lease             = push --force-with-lease
 
-	# Submodules of the repository.
+    # Submodules of the repository.
         update-sm                   = !git pull --recurse-submodules && git submodule update --init --recursive
         cm-sm                       = !git cm "SUBMODULE REFERENCE UPDATED"
 
@@ -69,7 +69,7 @@
     # Replaying of each other commit due rebasing with the standard commit.
         rebase-with-hooks           = rebase -x 'git reset --soft HEAD~1 && git commit -C HEAD@{1}'
 
-	# Resetting the changes.
+    # Resetting the changes.
         undo                        = reset HEAD~1 --mixed
         unstage                     = reset
         uncommit                    = reset --soft HEAD^
@@ -97,29 +97,29 @@
         excludesfile                = ~/.gitignore
 
     # Declaring mode of commands that output paths will quote.
-	    quotepath                   = false
+        quotepath                   = false
 
     # Setting the endings of line inside the files of repository.
         autocrlf                    = input
         safecrlf                    = warn
 
     # Launching an editor via specified value.
-	    editor                      = emacsclient -t -a emacs
+        editor                      = emacsclient -t -a emacs
 
 [color]
     # Enabling UI of coloured consoles.
-	    ui                          = true
-	    pager                       = true
-	    interactive                 = auto
+        ui                          = true
+        pager                       = true
+        interactive                 = auto
         grep                        = always
         decorate                    = always
         showbranch                  = always
 
 [color "branch"]
     # Enabling colouring in output of branches.
-	    current                     = green bold
-	    local                       = magenta
-	    remote                      = cyan
+        current                     = green bold
+        local                       = magenta
+        remote                      = cyan
 
 [color "diff"]
     # Enabling colouring in output of differences between merging.
@@ -161,7 +161,7 @@
 
 [difftool]
     # Disabling prompt of differences.
-	    prompt                      = false
+        prompt                      = false
 
 [difftool "vscode"]
     # Declaring default command to setup default editor.
@@ -192,10 +192,10 @@
 
 [credential]
     # External helping module of credentials.
-	    helper                      = osxkeychain
+        helper                      = osxkeychain
 
     # Acquiring credentials consider component of an HTTP to be important.
-	    useHttpPath                 = true
+        useHttpPath                 = true
 
 [merge]
     # Displaying common ancestering blocks in conflict hunks.
