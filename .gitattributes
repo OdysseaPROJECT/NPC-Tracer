@@ -14,7 +14,7 @@
 *.gradle                    text diff=java
 *.gradle.kts                text diff=java
 *.coffee                    text
-*.css                       text
+*.css                       text diff=css
 *.htm                       text diff=html
 *.html                      text diff=html
 *.inc                       text
@@ -29,12 +29,13 @@
 *.onlydata                  text
 *.php                       text diff=php
 *.pl                        text
-*.ps1                       text
+*.ps1                       text eol=crlf
 *.py                        text diff=python
 *.rb                        text diff=ruby
 *.sass                      text
 *.scm                       text
 *.scss                      text diff=css
+*.sh                        text eol=lf
 *.sql                       text
 *.styl                      text
 *.tag                       text
@@ -43,14 +44,23 @@
 *.xml                       text
 *.xhtml                     text diff=html
 
+# Binaries of project.
+*.class                     binary
+*.dll                       binary
+*.ear                       binary
+*.jar                       binary
+*.so                        binary
+*.war                       binary
+*.jks                       binary
+
 # Documentation for project.
 *.ipynb                     text
-*.markdown                  text
-*.md                        text
-*.mdwn                      text
-*.mdown                     text
-*.mkd                       text
-*.mkdn                      text
+*.markdown                  text diff=markdown
+*.md                        text diff=markdown
+*.mdwn                      text diff=markdown
+*.mdown                     text diff=markdown
+*.mkd                       text diff=markdown
+*.mkdn                      text diff=markdown
 *.mdtxt                     text
 *.mdtext                    text
 *.txt                       text
@@ -65,14 +75,14 @@ INSTALL                     text
 license                     text
 LICENSE                     text
 NEWS                        text
-*PATCHNOTE*                 text
 readme                      text
 *README*                    text
 TODO                        text
 
+# Documents of the project.
+
 # Configurations of environment.
 *.cnf                       text
-*.cfg                       text
 *.conf                      text
 *.config                    text
 .editorconfig               text
@@ -81,13 +91,33 @@ TODO                        text
 .gitconfig                  text
 .htaccess                   text
 *.lock                      text -diff
+package.json                text eol=lf
 package-lock.json           text -diff
+pnpm-lock.yaml              text eol=lf -diff
+yarn.lock                   text -diff
 *.toml                      text
 *.yaml                      text
 *.yml                       text
 browserslist                text
 Makefile                    text
 makefile                    text
+
+# Templates of environment.
+*.dot                       text
+*.ejs                       text
+*.haml                      text
+*.handlebars                text
+*.hbs                       text
+*.hbt                       text
+*.jade                      text
+*.latte                     text
+*.mustache                  text
+*.njk                       text
+*.phtml                     text
+*.tmpl                      text
+*.tpl                       text
+*.twig                      text
+*.vue                       text
 
 # Formatting the endings of LFS to normalize the text.
 # Graphics of the project.
@@ -108,6 +138,11 @@ makefile                    text
 *.psb                       binary
 *.psd                       binary
 *.svg                       text
+*.svgz                      binary
+*.tif                       binary
+*.tiff                      binary
+*.wbmp                      binary
+*.webp                      binary
 
 # Audio of the project.
 *.kar                       binary
@@ -124,6 +159,7 @@ makefile                    text
 *.as                        binary
 *.asf                       binary
 *.asx                       binary
+*.avi                       binary
 *.fla                       binary
 *.flv                       binary
 *.m4v                       binary
@@ -165,3 +201,16 @@ makefile                    text
 
 # Docker of the project.
 Dockerfile                  text
+
+# Heroku of the project.
+Procfile                    text
+
+# Formatting the endings of scripts.
+# Force batch scripts to always use CRLF endings so that if a repository is accessed
+# in Windows via a file share from Linux, the scripts will work.
+*.{cmd,[cC][mM][dD]}        text eol=crlf
+*.{bat,[bB][aA][tT]}        text eol=crlf
+
+# Force bash scripts to always use LF endings so that if a repository is accessed
+# in Unix via a file share from Windows, the scripts will work.
+*.{sh,[sS][hH]}             text eol=crlf
