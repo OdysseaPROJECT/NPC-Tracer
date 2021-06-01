@@ -15,13 +15,13 @@ Before you begin, ensure you have met the next requirements:
 
 Modification could be installed in two different ways.
 
-### Code
+- ### Code
 
 For installing the program code of the modification, use Git CLI: `gh repo clone ./Intellisence`.
 
 In another way, use the direct installation source: [via specified URL]().
 
-### Built
+- ### Built
 
 For installing the release of the modification, see the releases page.
 
