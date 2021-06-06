@@ -1,5 +1,6 @@
 package deltamine.ru.handlers;
 
+import deltamine.ru.Jupiter;
 import deltamine.ru.init.ItemInit;
 import deltamine.ru.util.ConfigHandler;
 import deltamine.ru.util.ModelChecker;
@@ -19,13 +20,18 @@ public class RegistryHandler {
     }
 
     @SubscribeEvent
-    public static void onItemRegister(RegistryEvent.Register<Item> event) {
+    public static void registerItems(RegistryEvent.Register<Item> event)
+    {
         event.getRegistry().registerAll(ItemInit.ITEMS.toArray(new Item[0]));
     }
 
-    public static void onModelRegister(ModelRegistryEvent event) {
-        for(Item item : ItemInit.ITEMS) {
-            if(item instanceof ModelChecker) {
+    @SubscribeEvent
+    public static void registerModels(ModelRegistryEvent event)
+    {
+        for(Item item : ItemInit.ITEMS)
+        {
+            if(item instanceof ModelChecker)
+            {
                 ((ModelChecker)item).registerModels();
             }
         }

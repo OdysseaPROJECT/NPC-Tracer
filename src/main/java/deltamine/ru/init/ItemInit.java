@@ -1,6 +1,7 @@
 package deltamine.ru.init;
 
 import deltamine.ru.objects.items.ItemBase;
+import deltamine.ru.util.ConfigHandler;
 import net.minecraft.item.Item;
 
 import java.util.ArrayList;

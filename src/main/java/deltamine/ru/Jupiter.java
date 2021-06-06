@@ -1,9 +1,11 @@
 package deltamine.ru;
 
+import deltamine.ru.handlers.RegistryHandler;
 import deltamine.ru.network.CheckEntityAnswSC;
 import deltamine.ru.network.CheckEntitySC;
 import deltamine.ru.network.PacketHandler;
 import deltamine.ru.network.ParticleSC;
+import deltamine.ru.proxy.CommonProxy;
 import deltamine.ru.util.ConfigHandler;
 import gnu.trove.map.TMap;
 import net.minecraft.entity.EntityLiving;
@@ -12,6 +14,7 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -31,6 +34,9 @@ public class Jupiter {
 
     public static File config;
 
+    @SidedProxy(clientSide = Lore.CLIENT, serverSide = Lore.SERVER)
+    public static CommonProxy proxy;
+
     public static FMLEventChannel network;
 
     public static TMap<EntityPlayer, List<EntityLiving>> entityLost;
@@ -40,6 +46,8 @@ public class Jupiter {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
+
+        RegistryHandler.preInitRegistries(event);
     }
 
     @EventHandler
