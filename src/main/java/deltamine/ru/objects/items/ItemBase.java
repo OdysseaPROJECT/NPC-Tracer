@@ -17,7 +17,6 @@ public class ItemBase extends Item implements ModelChecker {
     public ItemBase(String name) {
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(CreativeTabs.MISC);
         setMaxStackSize(1);
 
         ItemInit.ITEMS.add(this);
