@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "jupiter:items/debug_stick_npc"
+    }
+}
