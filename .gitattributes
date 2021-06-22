@@ -1,0 +1,237 @@
+# Attributes for a JDK-project.
+#
+# Attributes of this mod could be applied for any JDK-project.
+#
+# Auto-detect text and leave files detected as binary untouched.
+# Set default behaviour to automatically normalize line endings.
+#
+# Parameter will handle files not defined below.
+
+*                       text=auto
+
+# Formatting the endings of different files to normalize the text.
+#
+# Programming code attributes of project with web-documentation source.
+
+*.coffee                    text
+*.css                       text diff=css
+*.gradle                    text diff=java
+*.gradle.kts                text diff=java
+*.htm                       text diff=html
+*.html                      text diff=html
+*.inc                       text
+*.ini                       text
+*.java                      text diff=java
+*.js                        text
+*.json                      text
+*.jsx                       text
+*.less                      text
+*.ls                        text
+*.map                       text -diff
+*.od                        text
+*.onlydata                  text
+*.php                       text diff=php
+*.pl                        text
+*.ps1                       text eol=crlf
+*.py                        text diff=python
+*.rb                        text diff=ruby
+*.sass                      text
+*.scm                       text
+*.scss                      text diff=css
+*.sh                        text eol=lf
+*.sql                       text
+*.styl                      text
+*.tag                       text
+*.ts                        text
+*.tsx                       text
+*.xml                       text
+*.xhtml                     text diff=html
+
+# Binaries of the project with compiled sources.
+
+*.class                     binary
+*.dll                       binary
+*.ear                       binary
+*.jar                       binary
+*.so                        binary
+*.war                       binary
+*.jks                       binary
+
+# Documentation of the project.
+
+*.adoc                      text
+*.bibtex                    text diff=bibtex
+*.ipynb                     text
+*.markdown                  text diff=markdown
+*.md                        text diff=markdown
+*.mdwn                      text diff=markdown
+*.mdown                     text diff=markdown
+*.mkd                       text diff=markdown
+*.mkdn                      text diff=markdown
+*.mdtxt                     text
+*.mdtext                    text
+*.ps1                       text eol=crlf
+*.tab                       text
+*.tsv                       text
+*.txt                       text
+*.tex                       text diff=tex
+*.textile                   text
+AUTHORS                     text
+CHANGELOG                   text
+CHANGES                     text
+CONTRIBUTING                text
+COPYING                     text
+copyright                   text
+*COPYRIGHT*                 text
+INSTALL                     text
+license                     text
+LICENSE                     text
+NEWS                        text
+readme                      text
+*README*                    text
+TODO                        text
+
+# Configurations of an environment.
+
+*.cnf                       text
+*.conf                      text
+*.config                    text
+.editorconfig               text
+.env                        text
+.gitattributes              text
+.gitconfig                  text
+.gitkeep                    text
+.htaccess                   text
+*.lock                      text -diff
+package.json                text eol=lf
+package-lock.json           text -diff
+pnpm-lock.yaml              text eol=lf -diff
+yarn.lock                   text -diff
+*.toml                      text
+*.yaml                      text
+*.yml                       text
+browserslist                text
+Makefile                    text
+makefile                    text
+
+# Serialisation with templates of an environment.
+
+*.dot                       text
+*.ejs                       text
+*.haml                      text
+*.handlebars                text
+*.hbs                       text
+*.hbt                       text
+*.jade                      text
+*.latte                     text
+*.mustache                  text
+*.njk                       text
+*.phtml                     text
+*.tmpl                      text
+*.tpl                       text
+*.twig                      text
+*.vue                       text
+
+# Formatting the endings of LFS to normalize the binaries.
+#
+# Graphics of the project.
+
+*.ai                        binary
+*.bmp                       binary
+*.eps                       binary
+*.gif                       binary
+*.gifv                      binary
+*.ico                       binary
+*.jng                       binary
+*.jp2                       binary
+*.jpg                       binary
+*.jpeg                      binary
+*.jpx                       binary
+*.jxr                       binary
+*.pdf                       binary
+*.png                       binary
+*.psb                       binary
+*.psd                       binary
+*.svg                       text
+*.eps                       text
+*.svgz                      binary
+*.tif                       binary
+*.tiff                      binary
+*.wbmp                      binary
+*.webp                      binary
+
+# Audio of the project.
+
+*.kar                       binary
+*.m4a                       binary
+*.mid                       binary
+*.midi                      binary
+*.mp3                       binary
+*.ogg                       binary
+*.ra                        binary
+
+# Video of the project.
+
+*.3gpp                      binary
+*.3gp                       binary
+*.as                        binary
+*.asf                       binary
+*.asx                       binary
+*.avi                       binary
+*.fla                       binary
+*.flv                       binary
+*.m4v                       binary
+*.mng                       binary
+*.mov                       binary
+*.mp4                       binary
+*.mpeg                      binary
+*.mpg                       binary
+*.ogv                       binary
+*.swc                       binary
+*.swf                       binary
+*.webm                      binary
+
+# LFS-Documents of the project.
+
+*.doc                       -text filter=lfs diff=astextplain merge=lfs
+*.dot                       -text filter=lfs diff=astextplain merge=lfs
+*.pdf                       -text filter=lfs diff=astextplain merge=lfs
+*.rtf                       -text filter=lfs diff=astextplain merge=lfs
+*.docx                      -text filter=lfs diff=astextplain merge=lfs
+
+# Archives.
+
+*.7z                        binary
+*.gz                        binary
+*.jar                       binary
+*.rar                       binary
+*.tar                       binary
+*.zip                       binary
+
+# Fonts.
+
+*.ttf                       binary
+*.eot                       binary
+*.otf                       binary
+*.woff                      binary
+*.woff2                     binary
+
+# Executables.
+
+*.exe                       binary
+*.pyc                       binary
+
+# Formatting the endings of environment configurations to normalize text.
+#
+# RC-Files of the project.
+
+*.*rc                       text
+
+# IGNORE-Files of the project.
+
+*.*ignore                   text
+
+# Cloud platforms and dockers of the project.
+
+Dockerfile                  text
+Procfile                    text
