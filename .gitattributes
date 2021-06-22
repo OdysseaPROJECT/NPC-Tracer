@@ -189,7 +189,7 @@ makefile                text
 *.swc                   binary
 *.swf                   binary
 *.webm                  binary
-333333333333333333333333
+
 # LFS-Documents of the project.
 
 *.doc                   -text filter=lfs diff=astextplain merge=lfs
